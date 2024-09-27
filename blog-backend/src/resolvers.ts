@@ -5,7 +5,6 @@ const prisma = new PrismaClient();
 export const resolvers = {
   Query: {
     users: (parent, args, context) => {
-      console.log("HIT USERS");
       return prisma.user.findMany();
     },
     user: (_, { id }) => prisma.user.findUnique({ where: { id } }), // => {id: id, name: name, email: email, posts: ?????, comments: ??? }
@@ -22,7 +21,6 @@ export const resolvers = {
   },
   User: {
     posts: (parent) => {
-      console.log("HIT POSTS")
       return prisma.post.findMany({ where: { authorId: parent.id } });
     },
     comments: (parent) =>

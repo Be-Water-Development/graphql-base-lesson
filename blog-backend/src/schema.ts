@@ -4,7 +4,7 @@ export const typeDefs = gql`
   type User {
     id: Int!
     name: String!
-    email: String!
+    email: String! 
     posts: [Post!]!
     comments: [Comment!]!
   }
